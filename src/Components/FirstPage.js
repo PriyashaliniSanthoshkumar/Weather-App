@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Displayweather from "./Displayweather";
-import { Redirect } from 'react-router-dom'
 import "./FirstPage.css";
 
 function FirstPage() {
-  //const [weather, setWeather] = useState([]);
+  const [weather, setWeather] = useState([]);
   const [form, setForm] = useState({
     city: "",
     country: "",
@@ -22,7 +21,7 @@ function FirstPage() {
         .then((res) => res.json())
         .then((data) => data);
 
-     // setWeather({ data: data });
+      setWeather({ data: data });
     }
   }
 
@@ -60,10 +59,14 @@ function FirstPage() {
         </button>
       </form>
 
-     
+      
+      {weather.data !== undefined ? (
+        <div>
+          <Displayweather data={weather.data} />
+        </div>
+      ) : null}
     </div>
   );
 }
 
 export default FirstPage;
-
