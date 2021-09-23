@@ -9,7 +9,7 @@ function FirstPage() {
     country: "",
   });
 
-  const APIKEY = "ea97e52c3dd933f4e06a02012713596a";
+  const APIKEY = "";
   async function weatherData(e) {
     e.preventDefault();
     if (form.city === "") {
